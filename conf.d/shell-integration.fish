@@ -6,7 +6,9 @@ if status --is-interactive
   # empty if running; or a numeric exit code; or CANCEL
   set _fishprompt_postexec ""
 
-  functions -c fish_prompt _fishprompt_saved_prompt
+  if functions -q fish_prompt
+    functions -c fish_prompt _fishprompt_saved_prompt
+  end
   set _fishprompt_prompt_count 0
   set _fishprompt_disp_count 0
   function _fishprompt_start --on-event fish_prompt
