@@ -1,5 +1,5 @@
 function list_of_lists --description "Open FZF list of FZF lists"
-    set lists "git branches" "git worktrees" "docker images" "docker containers"
+    set lists "git branches" "git worktrees" "zellij sessions" "docker images" "docker containers"
     set selected_list (printf "%s\n" $lists | fzf)
     if test -z "$selected_list"
         return
