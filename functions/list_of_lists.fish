@@ -10,6 +10,8 @@ function list_of_lists --description "Open FZF list of FZF lists"
             set result (git branch --list --color=always | fzf --ansi | awk '{print $NF}') 
         case "git worktrees"
             set result (git worktree list | rg '\[(.+)\]' -or '$1' | fzf)
+        case "zellij sessions"
+            set result (zellij ls | awk '{print $1}' | fzf) 
         case "docker images"
             # TODO: parse what to print as result
             set result (docker image list --format '{{.Repository}} {{.Tag}}' | fzf)
