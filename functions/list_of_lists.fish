@@ -11,7 +11,7 @@ function list_of_lists --description "Open FZF list of FZF lists"
         case "git worktrees"
             set result (git worktree list | rg '\[(.+)\]' -or '$1' | fzf)
         case "zellij sessions"
-            set result (zellij ls | awk '{print $1}' | fzf) 
+            set result (zellij ls | awk '{print $1}' | fzf --ansi) 
         case "docker images"
             # TODO: parse what to print as result
             set result (docker image list --format '{{.Repository}} {{.Tag}}' | fzf)
